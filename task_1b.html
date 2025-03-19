@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>8 Dropdown Styles</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Each row container */
+  .dropdown-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 150px; /* Enough space to show dropdown items */
+  }
+
+  /* Base dropdown styling */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown button {
+    background: #2a9fd6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2a9fd6;
+    min-width: 120px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 999;
+  }
+  .dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s;
+  }
+  .dropdown-content a:hover {
+    background: #48bff8;
+  }
+  /* Show the dropdown on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* --- STYLE 1 --- */
+  .style1 .dropdown-content a {
+    transform: rotate(45deg) scale(0);
+    opacity: 0;
+    transform-origin: left center;
+  }
+  .style1:hover .dropdown-content a {
+    animation: style1Anim 0.3s forwards ease-out;
+  }
+  .style1:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style1:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style1:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style1:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style1:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style1:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style1Anim {
+    0% {
+      transform: rotate(45deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 2 --- */
+  .style2 .dropdown-content a {
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  .style2:hover .dropdown-content a {
+    animation: style2Anim 0.3s forwards ease-out;
+  }
+  .style2:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style2:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style2:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style2:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style2:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style2:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style2Anim {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 3 --- */
+  .style3 .dropdown-content a {
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: center center;
+  }
+  .style3:hover .dropdown-content a {
+    animation: style3Anim 0.3s forwards ease-out;
+  }
+  .style3:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style3:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style3:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style3:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style3:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style3:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style3Anim {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 4 --- */
+  .style4 .dropdown-content a {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  .style4:hover .dropdown-content a {
+    animation: style4Anim 0.4s forwards ease-out;
+  }
+  .style4:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style4:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style4:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style4:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style4:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style4:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style4Anim {
+    0% {
+      transform: translateX(-60%);
+      opacity: 0;
+    }
+    60% {
+      transform: translateX(10%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 5 --- */
+  .style5 .dropdown-content a {
+    transform: scaleY(0);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  .style5:hover .dropdown-content a {
+    animation: style5Anim 0.4s forwards ease-out;
+  }
+  .style5:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style5:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style5:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style5:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style5:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style5:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style5Anim {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    80% {
+      transform: scaleY(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 6 --- */
+  .style6 .dropdown-content a {
+    transform: rotate(45deg) scale(0);
+    opacity: 0;
+    transform-origin: right center;
+  }
+  .style6:hover .dropdown-content a {
+    animation: style6Anim 0.3s forwards ease-out;
+  }
+  .style6:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style6:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style6:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style6:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style6:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style6:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style6Anim {
+    0% {
+      transform: rotate(45deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 7 --- */
+  .style7 .dropdown-content a {
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: left center;
+  }
+  .style7:hover .dropdown-content a {
+    animation: style7Anim 0.3s forwards ease-out;
+  }
+  .style7:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style7:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style7:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style7:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style7:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style7:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style7Anim {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  /* --- STYLE 8 --- */
+  .style8 .dropdown-content a {
+    transform: rotate(-45deg) scale(0);
+    opacity: 0;
+    transform-origin: top right;
+  }
+  .style8:hover .dropdown-content a {
+    animation: style8Anim 0.3s forwards ease-out;
+  }
+  .style8:hover .dropdown-content a:nth-child(1) { animation-delay: 0.05s; }
+  .style8:hover .dropdown-content a:nth-child(2) { animation-delay: 0.1s; }
+  .style8:hover .dropdown-content a:nth-child(3) { animation-delay: 0.15s; }
+  .style8:hover .dropdown-content a:nth-child(4) { animation-delay: 0.2s; }
+  .style8:hover .dropdown-content a:nth-child(5) { animation-delay: 0.25s; }
+  .style8:hover .dropdown-content a:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes style8Anim {
+    0% {
+      transform: rotate(-45deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- First Row -->
+  <div class="dropdown-row">
+    <!-- STYLE 1 -->
+    <div class="dropdown style1">
+      <button>STYLE 1</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 2 -->
+    <div class="dropdown style2">
+      <button>STYLE 2</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 3 -->
+    <div class="dropdown style3">
+      <button>STYLE 3</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 4 -->
+    <div class="dropdown style4">
+      <button>STYLE 4</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Row -->
+  <div class="dropdown-row">
+    <!-- STYLE 5 -->
+    <div class="dropdown style5">
+      <button>STYLE 5</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 6 -->
+    <div class="dropdown style6">
+      <button>STYLE 6</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 7 -->
+    <div class="dropdown style7">
+      <button>STYLE 7</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+
+    <!-- STYLE 8 -->
+    <div class="dropdown style8">
+      <button>STYLE 8</button>
+      <div class="dropdown-content">
+        <a href="#">ONE</a>
+        <a href="#">TWO</a>
+        <a href="#">THREE</a>
+        <a href="#">FOUR</a>
+        <a href="#">FIVE</a>
+        <a href="#">SIX</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
