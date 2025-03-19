@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+
+
+
+
+<title>Dropdown CSS animation examples.</title>
+<link href="https://codepen.io/TheVortex/pen/LbERRG" rel="canonical"/>
+<style>
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #1D1F21;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  background-color: #47484B;
+  width: 600px;
+  height: 450px;
+  margin: 50px auto;
+  border: 1px solid #333;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav {
+  display: inline-block;
+  padding: 50px;
+  text-align: center;
+  margin: 0px 10px;
+  position: absolute;
+}
+.nav li:hover {
+  background: #4fa9d8;
+}
+.nav > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background: #3B95C4;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.nav > ul > li {
+  float: left;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+ul.drop-menu {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  padding: 0;
+}
+ul.drop-menu li {
+  background: #318bba;
+}
+ul.drop-menu li:hover {
+  background: #459fce;
+}
+ul.drop-menu li:first-child {
+  border-radius: 2px 2px 0 0;
+}
+ul.drop-menu li:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+ul.drop-menu li {
+  display: none;
+}
+
+li:hover > ul.drop-menu li {
+  display: block;
+}
+
+li:hover > ul.drop-menu.menu-1 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-1 li {
+  transform-origin: top left;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(1) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: -150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(2) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(3) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: 150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(4) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(5) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: 450ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-1 li:nth-child(6) {
+  animation-name: menu-1;
+  animation-duration: 300ms;
+  animation-delay: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-1 {
+  0% {
+    opacity: 0;
+    transform: rotateZ(90deg);
+  }
+  70% {
+    transform: skewX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+li:hover > ul.drop-menu.menu-2 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-2 li {
+  transform-origin: top center;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(1) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: -150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(2) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(3) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: 150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(4) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(5) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: 450ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-2 li:nth-child(6) {
+  animation-name: menu-2;
+  animation-duration: 300ms;
+  animation-delay: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-2 {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+li:hover > ul.drop-menu.menu-3 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-3 li {
+  transform-origin: top center;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(1) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: -150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(2) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(3) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: 150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(4) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(5) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: 450ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-3 li:nth-child(6) {
+  animation-name: menu-3;
+  animation-duration: 300ms;
+  animation-delay: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-3 {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  70% {
+    transform: rotateY(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+li:hover > ul.drop-menu.menu-4 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-4 li {
+  transform-origin: top center;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(1) {
+  animation-name: menu-4;
+  animation-delay: -150ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(2) {
+  animation-name: menu-4;
+  animation-delay: 0ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(3) {
+  animation-name: menu-4;
+  animation-delay: 150ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(4) {
+  animation-name: menu-4;
+  animation-delay: 300ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(5) {
+  animation-name: menu-4;
+  animation-delay: 450ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-4 li:nth-child(6) {
+  animation-name: menu-4;
+  animation-delay: 600ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-4 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  70% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+li:hover > ul.drop-menu.menu-5 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-5 li {
+  transform-origin: top center;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(1) {
+  animation-name: menu-5;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(2) {
+  animation-name: menu-5;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(3) {
+  animation-name: menu-5;
+  animation-duration: 450ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(4) {
+  animation-name: menu-5;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(5) {
+  animation-name: menu-5;
+  animation-duration: 750ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-5 li:nth-child(6) {
+  animation-name: menu-5;
+  animation-duration: 900ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-5 {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+li:hover > ul.drop-menu.menu-6 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-6 li {
+  transform-origin: top right;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(1) {
+  animation-name: menu-6;
+  animation-delay: -150ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(2) {
+  animation-name: menu-6;
+  animation-delay: 0ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(3) {
+  animation-name: menu-6;
+  animation-delay: 150ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(4) {
+  animation-name: menu-6;
+  animation-delay: 300ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(5) {
+  animation-name: menu-6;
+  animation-delay: 450ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-6 li:nth-child(6) {
+  animation-name: menu-6;
+  animation-delay: 600ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-6 {
+  0% {
+    opacity: 0;
+    margin-top: 50px;
+    transform: rotate(-45deg);
+  }
+  90% {
+    margin-top: -10px;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+li:hover > ul.drop-menu.menu-7 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-7 li {
+  transform-origin: top left;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(1) {
+  animation-name: menu-7;
+  animation-delay: -150ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(2) {
+  animation-name: menu-7;
+  animation-delay: 0ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(3) {
+  animation-name: menu-7;
+  animation-delay: 150ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(4) {
+  animation-name: menu-7;
+  animation-delay: 300ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(5) {
+  animation-name: menu-7;
+  animation-delay: 450ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-7 li:nth-child(6) {
+  animation-name: menu-7;
+  animation-delay: 600ms;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-7 {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+    margin-top: -100px;
+  }
+  80% {
+    margin-top: 0px;
+    transform: rotateY(90deg);
+  }
+  90% {
+    transform: rotateY(-10deg);
+    margin-top: 5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+    transform: rotateY(0deg);
+  }
+}
+li:hover > ul.drop-menu.menu-8 {
+  perspective: 1000px;
+}
+li:hover > ul.drop-menu.menu-8 li {
+  transform-origin: top left;
+  opacity: 0;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(1) {
+  animation-name: menu-8;
+  animation-delay: 75ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(2) {
+  animation-name: menu-8;
+  animation-delay: 150ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(3) {
+  animation-name: menu-8;
+  animation-delay: 225ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(4) {
+  animation-name: menu-8;
+  animation-delay: 300ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(5) {
+  animation-name: menu-8;
+  animation-delay: 375ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+li:hover > ul.drop-menu.menu-8 li:nth-child(6) {
+  animation-name: menu-8;
+  animation-delay: 450ms;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+@keyframes menu-8 {
+  0% {
+    opacity: 0;
+    transform: skewX(45deg) skewY(-45deg);
+  }
+  80% {
+    transform: skewX(-10) skewY(-10);
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(0deg) skewY(0deg);
+  }
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+</head>
+<body translate="no">
+<div class="container">
+<div class="nav">
+<ul>
+<li>STYLE 1
+        <ul class="drop-menu menu-1">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 2
+        <ul class="drop-menu menu-2">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 3
+        <ul class="drop-menu menu-3">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 4
+        <ul class="drop-menu menu-4">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="container">
+<div class="nav">
+<ul>
+<li>STYLE 5
+        <ul class="drop-menu menu-5">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 6
+        <ul class="drop-menu menu-6">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 7
+        <ul class="drop-menu menu-7">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+<li>STYLE 8
+        <ul class="drop-menu menu-8">
+<li>ONE</li>
+<li>TWO</li>
+<li>THREE</li>
+<li>FOUR</li>
+<li>FIVE</li>
+<li>SIX</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
