@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Calculator</title>
-    <!-- Load Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -31,20 +30,36 @@
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
-        form .form-control {
+        .form-control {
             flex: 1 1 30%;
             min-width: 200px;
             margin: 10px;
+            position: relative;
         }
-        form label {
+        label {
             display: block;
             margin-bottom: 5px;
             color: #555;
         }
-        form input {
+        input {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Error styles */
+        input.error {
+            border: 2px solid red;
+            background-color: #ffe5e5;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+            position: absolute;
+            left: 0;
         }
         #result {
             margin-top: 30px;
@@ -56,8 +71,8 @@
         }
         table th, table td {
             border: 1px solid #ddd;
-            padding: 8px;
-            text-align: right;
+            padding: 10px;
+            text-align: center;
         }
         table th {
             background-color: #f9f9f9;
@@ -70,7 +85,7 @@
             display: block;
         }
         @media (max-width: 600px) {
-            form .form-control {
+            .form-control {
                 flex: 1 1 100%;
             }
         }
@@ -84,14 +99,17 @@
         <div class="form-control">
             <label for="loan-amount">Loan Amount ($):</label>
             <input type="number" id="loan-amount" placeholder="e.g., 25000" required>
+            <div class="error-message">Please enter a positive number.</div>
         </div>
         <div class="form-control">
             <label for="interest-rate">Annual Interest Rate (%):</label>
             <input type="number" step="0.01" id="interest-rate" placeholder="e.g., 5.5" required>
+            <div class="error-message">Please enter a positive number.</div>
         </div>
         <div class="form-control">
             <label for="loan-term">Loan Term (years):</label>
             <input type="number" id="loan-term" placeholder="e.g., 5" required>
+            <div class="error-message">Please enter a positive number.</div>
         </div>
         <div class="form-control" style="flex: 1 1 100%; text-align: center;">
             <button type="submit" style="padding: 10px 20px; font-size: 16px;">Calculate</button>
@@ -125,22 +143,36 @@
     });
 
     function calculateLoan() {
-        // Get input values
-        const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-        const annualInterestRate = parseFloat(document.getElementById('interest-rate').value);
-        const loanTermYears = parseInt(document.getElementById('loan-term').value);
+        const loanAmountInput = document.getElementById('loan-amount');
+        const interestRateInput = document.getElementById('interest-rate');
+        const loanTermInput = document.getElementById('loan-term');
 
-        if (loanAmount <= 0 || annualInterestRate <= 0 || loanTermYears <= 0) {
-            alert('Please enter positive values.');
-            return;
-        }
+        const inputs = [loanAmountInput, interestRateInput, loanTermInput];
+
+        let isValid = true;
+
+        inputs.forEach(input => {
+            const errorMessage = input.nextElementSibling;
+            if (parseFloat(input.value) <= 0 || isNaN(parseFloat(input.value))) {
+                input.classList.add('error');
+                errorMessage.style.display = 'block';
+                isValid = false;
+            } else {
+                input.classList.remove('error');
+                errorMessage.style.display = 'none';
+            }
+        });
+
+        if (!isValid) return;
+
+        const loanAmount = parseFloat(loanAmountInput.value);
+        const annualInterestRate = parseFloat(interestRateInput.value);
+        const loanTermYears = parseInt(loanTermInput.value);
 
         const monthlyInterestRate = (annualInterestRate / 100) / 12;
         const numberOfPayments = loanTermYears * 12;
 
         // Monthly payment formula
-        //const monthlyPayment = (loanAmount * monthlyInterestRate) / 
-        //    (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
         let monthlyPayment;
         if (annualInterestRate === 0) {
             monthlyPayment = loanAmount / numberOfPayments;
@@ -164,11 +196,8 @@
             totalInterest += interestPayment;
             totalPrincipal += principalPayment;
 
-            // Handle last payment rounding errors
-            if (i === numberOfPayments) {
-                if (Math.abs(balance) < 0.01) {
-                    balance = 0;
-                }
+            if (i === numberOfPayments && Math.abs(balance) < 0.01) {
+                balance = 0;
             }
 
             const row = `
@@ -183,10 +212,8 @@
             amortizationTable.insertAdjacentHTML('beforeend', row);
         }
 
-        // Display the result section
         document.getElementById('result').style.display = 'block';
 
-        // Create pie chart
         const ctx = document.getElementById('pie-chart').getContext('2d');
         if (window.pieChart) {
             window.pieChart.destroy();
